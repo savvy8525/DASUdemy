@@ -142,8 +142,108 @@ public class LinkedList {
         }
         length++;
          */
+    }
+
+    // WRITE REMOVEFIRST METHOD HERE //
+    //                               //
+    //                               //
+    //                               //
+    //                               //
+    ///////////////////////////////////
+
+    public Node removeFirst() {
+        Node temp;
+
+        if(head == null) {
+            return null;
+        }
+
+        temp = head;
+        head = head.next;
+        temp.next = null;
+        length--;
+
+        if(length == 0) {
+            tail = null;
+        }
+            return temp;
+    }
+
+    /// WRITE GET METHOD HERE ///
+    //                         //
+    //                         //
+    //                         //
+    //                         //
+    /////////////////////////////
+
+    public Node get(int index){
+        if(index < 0 || index >= length) {
+            return null;
+        }
+        Node get = head;
+        int count = 0;
+        while(get.next != null) {
+            if(count == index) {
+                break;
+            }
+            get = get.next;
+            count++;
+        }
+
+        return get;
+
+        /* Instructor code
+        if (index < 0 || index >= length) return null;
+        Node temp = head;
+        for(int i = 0; i < index; i++) {
+            temp = temp.next;
+        }
+        return temp;
+
+         */
+    }
+
+
+    /// WRITE SET METHOD HERE ///
+    //                         //
+    //                         //op
+    //                         //
+    //                         //
+    /////////////////////////////
+
+    public boolean set(int index, int value) {
+//        Node set = head;
+//        int count = 0;
+//        while(set.next != null) {
+//            if(count == index) {
+//                set.value = value;
+//                break;
+//            }
+//            set = set.next;
+//            count++;
+//        }
+//
+//        return true;
+
+        Node set = get(index);
+        if(set != null) {
+            set.value = value;
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean insert(int index, int value) {
+//        Node currentNode = get(index);
+        Node previous = get(index - 1);
+        Node temp = new Node(value);
+
+
+
 
 
     }
+
 
 }
