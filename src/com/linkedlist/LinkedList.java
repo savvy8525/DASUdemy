@@ -234,14 +234,35 @@ public class LinkedList {
         return false;
     }
 
+    // WRITE INSERT METHOD HERE //
+    //                          //
+    //                          //
+    //                          //
+    //                          //
+    //////////////////////////////
+    
     public boolean insert(int index, int value) {
-//        Node currentNode = get(index);
-        Node previous = get(index - 1);
-        Node temp = new Node(value);
 
+        Node node = new Node(value);
+        Node temp = get(index - 1);
 
+        if(index < 0 || index > length) {
+            return false;
+        }
 
+        if(index == 0) {
+            prepend(value);
+            return true;
+        }
+        if (index == length) {
+            append(value);
+            return true;
+        }
 
+        node.next = temp.next;
+        temp.next = node;
+        length++;
+        return true;
 
     }
 
